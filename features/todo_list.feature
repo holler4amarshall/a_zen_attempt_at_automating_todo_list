@@ -45,5 +45,5 @@ Scenario: Clear an item from the list
 
 Scenario: Clear all completed Todo items from the list
 	Given Some items in my list are completed
-	When I tap Clear Completed 
+	When I click Clear Completed 
 	Then My todo list is empty
