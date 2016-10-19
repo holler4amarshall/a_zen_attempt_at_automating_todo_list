@@ -35,9 +35,11 @@ Scenario: Complete all items using the down arrow at top left of UI
 	When I mark all todo items as completed
 	Then I see all todo items as completed
 
+@wip
 Scenario: View all completed items using Completed filter
-	Given Some items in my list are completed
-	When I filter items using completed filter
+	Given I add "unfinished business" to my list #to ensure at least 1 item is not completed
+	And Some items in my list are completed
+	When I filter items by "Completed"
 	Then I see the completed items
 
 Scenario: Clear an item from the list

@@ -78,12 +78,22 @@ module Todo
 		end
 
 		def check_all_items_status
+			items = []
 			status = []
-			status = $driver.find_elements(:xpath, "//ul").attribute('class') #put all status in a list
+			items = $driver.find_elements(:xpath, "//li[contains(@id, 'ember')]") #put all items in a list
+			puts items
+			for item in items do
+				item_status = item.attribute('class')
+				puts item_status
+				status.push(item_status)
+			end
 			puts status
 			return status
 		end
 
+		def filter_by(filter)
+			$driver.find_element(:link_text, ("#{filter}")).click
+		end
 		
 
 	end

@@ -57,16 +57,18 @@ When(/^I mark all todo items as completed$/) do
   Todo.mark_all_complete
 end
 
-Then(/^I see all todo items as completed$/) do
-  Todo.check_all_items_status
+Then(/^I see all todo items as completed$/) do 
+  status = Todo.check_all_items_status
+  fail "some items are not complete" unless status.include?(completed)
 end
 
 Given(/^Some items in my list are completed$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  status = Todo.check_all_items_status
+  fail "at least one item is not complete" unless status.include?(completed)
 end
 
-When(/^I filter items using completed filter$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+When (/^I filter items by "([^"]*)"$/) do |filter|
+  Todo.filter_by(filter)
 end
 
 Then(/^I see the completed items$/) do
