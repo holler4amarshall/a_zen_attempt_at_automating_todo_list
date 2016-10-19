@@ -1,9 +1,23 @@
+require 'selenium-webdriver'
+require 'page-object'
+require_relative 'pages/todo_list'
+
+DEFAULT_TIMEOUT = 10
+
+driver = Selenium::WebDriver.for :chrome
+driver.manage.timeouts.implicit_wait = DEFAULT_TIMEOUT
+
+
+### Step definitions ###
+
+
 Given(/^I open the todo list application$/) do
-  @browser.navigate.to "http://todomvc.com/"
+  driver.navigate.to "http://todomvc.com/examples/emberjs/index.html"
+  #open_todo_list
 end
 
 Given(/^I see todo list application$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  driver.find_element(:xpath, ("//h1[text()='todos']"))
 end
 
 Given(/^My todo list is empty$/) do
