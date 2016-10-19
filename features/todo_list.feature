@@ -3,8 +3,7 @@ Feature: to do list
 	I want to manage my to do list
 	So I can manage my daily tasks
 
-@wip
-Scenario: background
+Background: 
 	Given I open the todo list application
 	And I see todo list application
 
@@ -13,7 +12,7 @@ Scenario: Add an item to the to do list
 	Given My todo list is empty
 	When I add "walk the dog" to my list
 	Then I see "walk the dog" in my list
-@not_ready
+@wip
 Scenario: Complete item in the to do list
 	Given I see "walk the dog" in my list
 	And I see "walk the dog" is not completed

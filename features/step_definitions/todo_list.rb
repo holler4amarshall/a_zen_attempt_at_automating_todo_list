@@ -8,6 +8,17 @@ driver = Selenium::WebDriver.for :chrome
 driver.manage.timeouts.implicit_wait = DEFAULT_TIMEOUT
 
 
+def locate_item_by_text(item)
+    puts item
+    return item
+end
+
+def get_item_id_from_text(item)
+  item = locate_item_by_text(item)
+  item_id = item_text.attribute("../..")
+  puts item_id
+end
+
 ### Step definitions ###
 
 
@@ -34,8 +45,12 @@ Then(/^I see "([^"]*)" in my list$/) do |item|
   driver.find_element(:xpath, "//ul[@id='todo-list']/*//label[text()='#{item}']")
 end
 
-Given(/^I see "([^"]*)" is not completed$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+Given(/^I see "([^"]*)" is not completed$/) do |item|
+  item = driver.find_element(:xpath, "//label[text()='#{item}']")
+  item_id = item.find_element(:xpath, "../..")
+  completion_status = item_id.attribute('class')
+  puts 'the class of action item is: ' + completion_status
+  fails "#{item} is complete" unless completion_status == 'ember-view'  
 end
 
 When(/^I mark "([^"]*)" as completed$/) do |arg1|
