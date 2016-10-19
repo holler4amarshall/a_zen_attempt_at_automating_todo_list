@@ -1,3 +1,7 @@
+Given(/^I open the todo list application$/) do
+  @browser.navigate.to "http://todomvc.com/"
+end
+
 Given(/^I see todo list application$/) do
   pending # Write code here that turns the phrase above into concrete actions
 end

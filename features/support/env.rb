@@ -1,6 +1,4 @@
-
-require 'selenium-webdriver'
+require 'rspec'
 require 'page-object'
-require 'require_all'
 
 World(PageObject::PageFactory)

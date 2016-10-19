@@ -1,8 +1,14 @@
 
-Before do |scenario|
-    @browser = Browser.new(ENV['DRIVER'])
+require 'selenium-webdriver'
+
+
+Before do
+
+  @browser = Selenium::WebDriver.for :chrome
+
 end
 
-After do |scenario|
-    @browser.driver.quit
+
+After do
+  @browser.close
 end

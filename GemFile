@@ -1,5 +1,6 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
 gem 'cucumber'
-gem 'selenium-webdriver'
-gem 'require_all'
+gem 'rspec'
+gem 'rake'
+gem 'page-object'
