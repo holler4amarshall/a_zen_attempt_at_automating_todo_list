@@ -2,11 +2,6 @@ require 'selenium-webdriver'
 require 'page-object'
 require_relative 'pages/todo_list'
 
-#DEFAULT_TIMEOUT = 2
-
-#driver = Selenium::WebDriver.for :chrome
-#driver.manage.timeouts.implicit_wait = DEFAULT_TIMEOUT
-
 ### Step definitions ###
 
 active = 'ember-view' #status
@@ -76,14 +71,14 @@ Then(/^I see the completed items$/) do
   fail "some items displayed are not complete" unless status.include?(completed)
 end
 
-When(/^I tap on the delete button$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+When(/^I click x to delete "([^"]*)"$/) do |item|
+  Todo.clear_item(item)
 end
 
-Then(/^I no longer see "([^"]*)" in my list$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+Then(/^I no longer see "([^"]*)" in my list$/) do |item|
+  Todo.item_not_displayed(item)
 end
 
 When(/^I click Clear Completed$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  Todo.click_clear_completed
 end

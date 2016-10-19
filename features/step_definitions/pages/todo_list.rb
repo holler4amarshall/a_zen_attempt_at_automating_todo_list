@@ -18,16 +18,13 @@ module Todo
 
 		def list_is_empty
 			$driver.find_element(:xpath, "//ul[@id='todo-list']").exists? rescue false
+			#this step needs fixing
 		end
 
 
 		def add_item(item)
   			$driver.find_element(:id, "new-todo").send_keys(item + "\n")
   		end
-
-
-		def item_status(item, status)
-		end
 
 
 		def item_appears_in_list(item)
@@ -51,6 +48,12 @@ module Todo
 			completion_status = parent.attribute('class')
   		end
 
+		def get_item_id(text)
+			parent = get_item_from_text(text)
+			item_id = parent.attribute('id')
+			return item_id
+  		end  		
+
 
   		def change_status(text)
   			parent = get_item_from_text(text)
@@ -62,6 +65,32 @@ module Todo
 			$driver.find_element(:id, ('toggle-all')).click
 		end
 
+
+		def click_clear_completed
+			$driver.find_element(:xpath, "//button[text()='Clear completed']").click
+		end
+
+
+		def mark_all_clear
+			$driver.find_element(:id, ('toggle-all')).click
+		end
+
+
+		def clear_item(text)
+			item = get_item_from_text(text)
+			parent = get_item_from_text(text)
+  			parent_id = parent.attribute('id')
+  			$driver.mouse.move_to item
+			$driver.find_element(:xpath, ("//li[@id='#{parent_id}']/*//button")).click
+		end
+
+		def item_not_displayed(text)
+			result = locate_item_by_text(text)
+			puts result
+			fail "#{text} is still displayed" unless result == true 
+			rescue Selenium::WebDriver::Error::NoSuchElementError
+			#this step needs fixing
+		end
 
   		def get_list_count
 			items = []
@@ -94,6 +123,7 @@ module Todo
 		def filter_by(filter)
 			$driver.find_element(:link_text, ("#{filter}")).click
 		end
+
 		
 
 	end
