@@ -7,7 +7,8 @@ require 'page-object'
 DEFAULT_TIMEOUT = 10
 
 driver = Selenium::WebDriver.for :chrome
-driver.manage.timeouts.implicit_wait = DEFAULT_TIMEOUT
+$driver = driver
+$driver.manage.timeouts.implicit_wait = DEFAULT_TIMEOUT
 
 
 
