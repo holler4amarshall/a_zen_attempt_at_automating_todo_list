@@ -14,10 +14,6 @@ Then(/^I see "([^"]*)" in my list$/) do |arg1|
   pending # Write code here that turns the phrase above into concrete actions
 end
 
-Given(/^I see "([^"]*)" in my list$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
 Given(/^I see "([^"]*)" is not completed$/) do |arg1|
   pending # Write code here that turns the phrase above into concrete actions
 end
@@ -30,15 +26,7 @@ Then(/^I see "([^"]*)" is completed$/) do |arg1|
   pending # Write code here that turns the phrase above into concrete actions
 end
 
-Given(/^I see "([^"]*)" is completed$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
 When(/^I mark "([^"]*)" as incomplete$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then(/^I see "([^"]*)" is not completed$/) do |arg1|
   pending # Write code here that turns the phrase above into concrete actions
 end
 
@@ -47,10 +35,6 @@ Given(/^I see "([^"]*)" item in my todo list$/) do |arg1|
 end
 
 Then(/^I see "([^"]*)" items in my todo list$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Given(/^I see "([^"]*)" items in my todo list$/) do |arg1|
   pending # Write code here that turns the phrase above into concrete actions
 end
 
@@ -83,9 +67,5 @@ Then(/^I no longer see "([^"]*)" in my list$/) do |arg1|
 end
 
 When(/^I click Clear Completed$/) do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then(/^My todo list is empty$/) do
   pending # Write code here that turns the phrase above into concrete actions
 end
