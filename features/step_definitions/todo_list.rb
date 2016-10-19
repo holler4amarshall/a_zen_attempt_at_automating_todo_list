@@ -72,7 +72,8 @@ When (/^I filter items by "([^"]*)"$/) do |filter|
 end
 
 Then(/^I see the completed items$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  status = Todo.check_all_items_status
+  fail "some items displayed are not complete" unless status.include?(completed)
 end
 
 When(/^I tap on the delete button$/) do

@@ -37,11 +37,12 @@ Scenario: Complete all items using the down arrow at top left of UI
 
 @wip
 Scenario: View all completed items using Completed filter
-	Given I add "unfinished business" to my list #to ensure at least 1 item is not completed
+	Given I add "unfinished business" to my list
 	And Some items in my list are completed
 	When I filter items by "Completed"
 	Then I see the completed items
 
+@wip
 Scenario: Clear an item from the list
 	Given I see "walk the dog" in my list
 	When I tap on the delete button
