@@ -9,7 +9,8 @@ require_relative 'pages/todo_list'
 
 ### Step definitions ###
 
-
+active = 'ember-view' #status
+completed = 'ember-view completed' #status
 
 
 Given(/^I open the todo list application$/) do
@@ -34,19 +35,15 @@ end
 
 Given(/^I see "([^"]*)" is not completed$/) do |item|
   status = Todo.get_completion_status(item)
-  fail "#{item} is complete" unless status == 'ember-view'  
-end
-
-When(/^I mark "([^"]*)" as completed$/) do |item|
-  Todo.change_status(item)
+  fail "#{item} is complete" unless status == active 
 end
 
 Then(/^I see "([^"]*)" is completed$/) do |item|
   
 end
 
-When(/^I mark "([^"]*)" as incomplete$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+When(/^I mark "([^"]*)" (?:is|as) (?:completed|active)$/) do |item|
+  Todo.change_status(item)
 end
 
 Given(/^I see "([^"]*)" item in my todo list$/) do |arg1|

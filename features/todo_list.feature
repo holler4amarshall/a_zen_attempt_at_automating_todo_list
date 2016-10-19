@@ -18,10 +18,10 @@ Scenario: Complete item in the to do list
 	And I see "walk the dog" is not completed
 	When I mark "walk the dog" as completed
 	Then I see "walk the dog" is completed
-
+@wip
 Scenario: Undo complete item in the to do list
 	Given I see "walk the dog" is completed
-	When I mark "walk the dog" as incomplete
+	When I mark "walk the dog" as active
 	Then I see "walk the dog" is not completed
 
 Scenario: Add a second to do list item
