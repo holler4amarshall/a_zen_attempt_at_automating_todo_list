@@ -47,20 +47,18 @@ When(/^I mark "([^"]*)" (?:is|as) (?:completed|active)$/) do |item|
   Todo.change_status(item)
 end
 
-Given(/^I see "([^"]*)" item in my todo list$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then(/^I see "([^"]*)" items in my todo list$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+Given(/^I see "([^"]*)" items? in my todo list$/) do |number|
+  num_items = Todo.get_list_count
+  num_items = num_items.to_s
+  fail "total of #{num_items} does not match expected: #{number}." unless num_items == number.to_s
 end
 
 When(/^I mark all todo items as completed$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  Todo.mark_all_complete
 end
 
 Then(/^I see all todo items as completed$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  Todo.check_all_items_status
 end
 
 Given(/^Some items in my list are completed$/) do
