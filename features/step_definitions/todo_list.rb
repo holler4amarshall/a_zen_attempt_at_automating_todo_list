@@ -7,18 +7,6 @@ DEFAULT_TIMEOUT = 2
 driver = Selenium::WebDriver.for :chrome
 driver.manage.timeouts.implicit_wait = DEFAULT_TIMEOUT
 
-
-def locate_item_by_text(item)
-    puts item
-    return item
-end
-
-def get_item_id_from_text(item)
-  item = locate_item_by_text(item)
-  item_id = item_text.attribute("../..")
-  puts item_id
-end
-
 ### Step definitions ###
 
 
@@ -53,8 +41,11 @@ Given(/^I see "([^"]*)" is not completed$/) do |item|
   fails "#{item} is complete" unless completion_status == 'ember-view'  
 end
 
-When(/^I mark "([^"]*)" as completed$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+When(/^I mark "([^"]*)" as completed$/) do |item|
+  item = driver.find_element(:xpath, "//label[text()='#{item}']")
+  grandparent = item.find_element(:xpath, "../..")
+  id = grandparent.attribute('id')
+  driver.find_element(:xpath, "//li[@id='#{id}']/*//input[@type='checkbox']").click
 end
 
 Then(/^I see "([^"]*)" is completed$/) do |arg1|
