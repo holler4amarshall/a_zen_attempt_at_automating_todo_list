@@ -11,6 +11,8 @@ driver.manage.timeouts.implicit_wait = DEFAULT_TIMEOUT
 ### Step definitions ###
 
 
+
+
 Given(/^I open the todo list application$/) do
   driver.navigate.to "http://todomvc.com/examples/emberjs/index.html"
   #open_todo_list
@@ -21,16 +23,15 @@ Given(/^I see todo list application$/) do
 end
 
 Given(/^My todo list is empty$/) do
-  except if driver.find_element(:xpath, "//ul[@id='todo-list']").exists? rescue false
-  #except 'no such element: Unable to locate element'
+  except driver.find_element(:xpath, "//ul[@id='todo-list']").exists? rescue false
 end
 
-When(/^I add "([^"]*)" to my list$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+When(/^I add "([^"]*)" to my list$/) do |item|
+  driver.find_element(:id, "new-todo").send_keys(item + "\n")
 end
 
-Then(/^I see "([^"]*)" in my list$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+Then(/^I see "([^"]*)" in my list$/) do |item|
+  driver.find_element(:xpath, "//ul[@id='todo-list']/*//label[text()='#{item}']")
 end
 
 Given(/^I see "([^"]*)" is not completed$/) do |arg1|
