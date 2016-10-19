@@ -23,13 +23,13 @@ Scenario: Undo complete item in the to do list
 	Given I see "walk the dog" is completed
 	When I mark "walk the dog" as active
 	Then I see "walk the dog" is not completed
-
+@wip
 Scenario: Add a second to do list item
 	Given I see "1" item in my todo list
 	When I add "feed the dog" to my list
 	Then I see "feed the dog" in my list
 	And I see "2" items in my todo list
-
+@wip
 Scenario: Complete all items using the down arrow at top left of UI
 	Given I see "2" items in my todo list
 	When I mark all todo items as completed

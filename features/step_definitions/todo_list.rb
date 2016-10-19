@@ -39,7 +39,8 @@ Given(/^I see "([^"]*)" is not completed$/) do |item|
 end
 
 Then(/^I see "([^"]*)" is completed$/) do |item|
-  
+  status = Todo.get_completion_status(item)
+  fail "#{item} is complete" unless status == completed
 end
 
 When(/^I mark "([^"]*)" (?:is|as) (?:completed|active)$/) do |item|
