@@ -8,7 +8,7 @@ Scenario: background
 	Given I open the todo list application
 	And I see todo list application
 
-
+@wip
 Scenario: Add an item to the to do list
 	Given My todo list is empty
 	When I add "walk the dog" to my list

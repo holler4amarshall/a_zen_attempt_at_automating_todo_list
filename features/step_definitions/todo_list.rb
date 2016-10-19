@@ -2,7 +2,7 @@ require 'selenium-webdriver'
 require 'page-object'
 require_relative 'pages/todo_list'
 
-DEFAULT_TIMEOUT = 10
+DEFAULT_TIMEOUT = 2
 
 driver = Selenium::WebDriver.for :chrome
 driver.manage.timeouts.implicit_wait = DEFAULT_TIMEOUT
@@ -17,11 +17,12 @@ Given(/^I open the todo list application$/) do
 end
 
 Given(/^I see todo list application$/) do
-  driver.find_element(:xpath, ("//h1[text()='todos']"))
+  driver.find_element(:xpath, ("//h1[text()='todos']")) 
 end
 
 Given(/^My todo list is empty$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  except if driver.find_element(:xpath, "//ul[@id='todo-list']").exists? rescue false
+  #except 'no such element: Unable to locate element'
 end
 
 When(/^I add "([^"]*)" to my list$/) do |arg1|
