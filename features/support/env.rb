@@ -1,5 +1,6 @@
 require 'rspec'
 require 'page-object'
+require 'selenium-webdriver'
 #require_relative '/../../pages/todo_list.rb'
 
 #selenium_driver = Selenium::WebDriver.for :firefox
