@@ -1,3 +1,21 @@
+#update
+on 20/10, I ran the tests in multiple browsers and found that there were some cross browser issues running the tests. 
+the test suite is currently written against Chrome browser & there will be failures (that aren't handled gracefully in the other browsers, such as Safari) 
+
+additionally, I noticed that I skipped out the test for Edit item.
+
+when I added this test in, I noticed that there is a bug? in Chrome browser: 
+
+after an item is edited, the new value appears on the screen after the item has been edited. 
+
+however, once the URL is refreshed, the item displays the old text. 
+
+*checking cookies to troubleshoot
+
+As a last minute resort: I updated the test flow, to incorporate the expected result of this bug. 
+
+Eg, Safari is not accepting the send keys (enter) command, and changes to the tests would need to ensure that tests dont fail in Safari. 
+
 # a_zen_attempt_at_automating_todo_list
 a cucumber, selenium web driver, ruby test demo
 
