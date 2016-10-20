@@ -12,6 +12,11 @@ Scenario: Add an item to the to do list
 	When I add "walk the dog" to my list
 	Then I see "walk the dog" in my list
 
+Scenario: Edit an item in the to do list
+	Given I see "walk the dog" in my list
+	Then I can edit the item from "walk the dog" to "pat the dog"
+	Then I see "pat the dog" in my list
+
 Scenario: Complete item in the to do list
 	Given I see "walk the dog" in my list
 	And I see "walk the dog" is not completed

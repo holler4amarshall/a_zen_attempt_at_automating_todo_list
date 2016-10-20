@@ -82,3 +82,9 @@ end
 When(/^I click Clear Completed$/) do
   Todo.click_clear_completed
 end
+
+Then(/^I can edit the item from "([^"]*)" to "([^"]*)"$/) do |old_item, new_item|
+  Todo.edit_item(old_item, new_item)
+end
+
+

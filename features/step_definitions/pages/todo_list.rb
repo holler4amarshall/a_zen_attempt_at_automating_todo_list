@@ -125,6 +125,21 @@ module Todo
 		end
 
 		
+		def edit_item(old_item, new_item)
+			item = get_item_from_text(old_item)
+			parent = get_item_from_text(old_item)
+  			parent_id = parent.attribute('id')
+  			$driver.action.double_click(item).perform
+  			sleep  1
+  			#edit_field = $driver.find_element(:xpath, "//li[@id='#{parent_id}']/*//input[@class='edit']/label[text()='#{old_item}']")
+  			edit_field = $driver.find_element(:xpath, "//input[@class='edit']")
+  			edit_field.clear
+  			edit_field.send_keys(new_item)
+  			sleep  1
+  			edit_field.send_keys("\n")
+  			sleep 1
+  			$driver.find_element(:xpath, "//li[@id='#{parent_id}']/*//label[text()='#{new_item}']")
+		end
 
 	end
 
