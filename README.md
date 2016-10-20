@@ -6,9 +6,9 @@ additionally, I noticed that I skipped out the test for Edit item.
 
 when I added this test in, I noticed that there is a bug? in the application when running in Chrome browser: 
 
-after an item is edited, the new value appears on the screen after the item has been edited. 
+issue: after an item is edited, the new value appears on the screen after the item has been edited. 
 
-chrome issue: *however, once the URL is refreshed, the item displays the old text.* 
+*however, once the URL is refreshed, the value returns to the old text.* 
 
 As a last minute resort: I updated the test flow, to incorporate the expected result of this bug. 
 
