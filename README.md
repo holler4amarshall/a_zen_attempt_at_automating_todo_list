@@ -4,7 +4,7 @@ note: the test suite is currently written against Chrome browser & there will be
 
 Additionally, I noticed that I skipped out the test for Edit item.
 
-when I added this test in, I noticed that there is a bug? in the application when running in Chrome browser: 
+when I added this test in, I noticed that there is a bug? in the application when running in Chrome browser (54.0.2840.59)on Mac OSX Sierra 10.12: 
 
 *issue: after an item is edited, the new value appears on the screen after the item has been edited.* 
 
