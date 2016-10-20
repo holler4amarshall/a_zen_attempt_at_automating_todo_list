@@ -4,7 +4,7 @@ the test suite is currently written against Chrome browser & there will be failu
 
 additionally, I noticed that I skipped out the test for Edit item.
 
-when I added this test in, I noticed that there is a bug? in Chrome browser: 
+when I added this test in, I noticed that there is a bug? in the application when running in Chrome browser: 
 
 after an item is edited, the new value appears on the screen after the item has been edited. 
 
